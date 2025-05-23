@@ -40,13 +40,19 @@ function SettingsOptionThemeOpenScreen({}) {
           mode="darkMode"
           title="System"
           onClick={() => {
-            const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const isSystemDark = window.matchMedia(
+              "(prefers-color-scheme: dark)",
+            ).matches;
             setSelectedTheme(isSystemDark ? "dark" : "light");
           }}
           subtitle="Select the same theme as your system"
           styleInside=""
         />
-        <MainButton onClick={() => toggleTheme(selectedTheme)} text="Apply Changes" styles="w-[132px] self-end mt-[8px]" />
+        <MainButton
+          onClick={() => toggleTheme(selectedTheme)}
+          text="Apply Changes"
+          styles="w-[132px] self-end mt-[8px]"
+        />
       </div>
       <NavBar />
     </div>

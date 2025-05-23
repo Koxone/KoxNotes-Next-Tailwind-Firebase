@@ -31,7 +31,7 @@ export default function SignUpScreen({ className = "" }) {
       alert("Invalid email or password");
       console.log(error);
     }
-  }
+  };
 
   return (
     <div
@@ -41,18 +41,20 @@ export default function SignUpScreen({ className = "" }) {
       <TitleAuth text="Create Your Account" />
       <SubtitleAuth text="Sign up to start organizing your notes and boost your productivity." />
 
-      <MailInput 
-      onChange={(e) => setEmail(e.target.value)}
-      value={email}
-      className="" 
-      text="Email Address" />
+      <MailInput
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        className=""
+        text="Email Address"
+      />
 
-      <PasswordInput 
-      onChange={(e) => setPassword(e.target.value)}
-      value={password}
-      text="Password" 
-      className="w-full" 
-      atLeast="At least 8 characters" />
+      <PasswordInput
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        text="Password"
+        className="w-full"
+        atLeast="At least 8 characters"
+      />
 
       <MainButton
         text="Sign Up"

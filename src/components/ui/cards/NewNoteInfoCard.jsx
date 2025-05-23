@@ -6,7 +6,9 @@ function NewNoteInfoCard({ mode = "", tagsText, onChange }) {
       <div className="top flex flex-row items-center justify-evenly gap-20">
         <div className="flex flex-row items-center justify-center gap-1.5">
           <img src={`/assets/images/icon-tag-${mode}.svg`} alt="icon" />
-          <p className="text-sm font-normal leading-[130%] text-neutral-300">Tags</p>
+          <p className="text-sm font-normal leading-[130%] text-neutral-300">
+            Tags
+          </p>
         </div>
         <div className="right">
           <input
@@ -22,10 +24,14 @@ function NewNoteInfoCard({ mode = "", tagsText, onChange }) {
       <div className="flex items-center justify-evenly gap-10">
         <div className="flex flex-row items-center justify-center gap-1.5">
           <img src={`/assets/images/icon-clock-${mode}.svg`} alt="icon" />
-          <p className="text-sm font-normal leading-[130%] text-neutral-300">Last Edited</p>
+          <p className="text-sm font-normal leading-[130%] text-neutral-300">
+            Last Edited
+          </p>
         </div>
         <div className="right">
-          <p className="text-sm font-normal leading-[130%] text-neutral-300">Not yet saved</p>
+          <p className="text-sm font-normal leading-[130%] text-neutral-300">
+            Not yet saved
+          </p>
         </div>
       </div>
     </div>

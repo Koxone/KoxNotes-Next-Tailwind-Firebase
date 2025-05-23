@@ -1,7 +1,13 @@
 import React from "react";
 import { deleteNote } from "@/utils/deleteNote";
 
-function DeleteButton({ icon = "", mode = "", styles = "", noteId = "", onSuccess }) {
+function DeleteButton({
+  icon = "",
+  mode = "",
+  styles = "",
+  noteId = "",
+  onSuccess,
+}) {
   const handleClick = async () => {
     const confirmDelete = confirm("Are you sure you want to delete this note?");
     if (!confirmDelete) return;
@@ -15,7 +21,10 @@ function DeleteButton({ icon = "", mode = "", styles = "", noteId = "", onSucces
     }
   };
   return (
-    <button onClick={handleClick} className={`w-[18px] h-[18px] ${styles} cursor-pointer`}>
+    <button
+      onClick={handleClick}
+      className={`w-[18px] h-[18px] ${styles} cursor-pointer`}
+    >
       <img src={`/assets/images/icon-${icon}-${mode}.svg`} alt="icon" />
     </button>
   );

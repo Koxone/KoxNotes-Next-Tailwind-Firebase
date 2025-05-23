@@ -19,8 +19,19 @@ function OpenNoteHeader({ onSave, noteId }) {
 
   return (
     <div className="flex py-3 w-full sticky top-0 px-4 border-b border-neutral-800 mb-3">
-      <GoBackButton styles="mr-[60px]" goTo={goTo} icon="arrow-left" mode="darkMode" />
-      <DeleteButton icon="delete" mode="darkMode" styles="mr-[16px]" noteId={noteId} onSuccess={() => router.push("/")} />
+      <GoBackButton
+        styles="mr-[60px]"
+        goTo={goTo}
+        icon="arrow-left"
+        mode="darkMode"
+      />
+      <DeleteButton
+        icon="delete"
+        mode="darkMode"
+        styles="mr-[16px]"
+        noteId={noteId}
+        onSuccess={() => router.push("/")}
+      />
       <ArchiveButton icon="archive" mode="darkMode" styles="mr-[16px]" />
       <CancelButton styles="mr-[32px]" />
       <SaveNoteButton onClick={onSave} onSuccess={() => router.back()} />

@@ -18,7 +18,12 @@ function ForgotPasswordScreen({ className = "" }) {
       <div
         className={`${className} bg-neutral-950 w-full h-screen rounded-2xl py-12 px-4 flex flex-col items-center gap-4 overflow-hidden`}
       >
-        <GoBackButton icon="arrow-left" mode="darkMode" styles="self-start" text="Cancel"/>
+        <GoBackButton
+          icon="arrow-left"
+          mode="darkMode"
+          styles="self-start"
+          text="Cancel"
+        />
         <MainLogo className="" />
         <TitleAuth text="Forgotten your password?" />
         <SubtitleAuth text="Enter your email below, and we’ll send you a link to reset it." />

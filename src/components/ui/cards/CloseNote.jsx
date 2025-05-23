@@ -9,8 +9,8 @@ function CloseNote({ title = "", date = "", tags = [], id }) {
   const safeTags = Array.isArray(tags)
     ? tags
     : typeof tags === "string"
-    ? tags.split(",").map((t) => t.trim())
-    : [];
+      ? tags.split(",").map((t) => t.trim())
+      : [];
 
   const goTo = () => {
     localStorage.setItem("selectedNoteId", id); // Guardamos el id

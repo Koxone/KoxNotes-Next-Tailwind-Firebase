@@ -1,6 +1,12 @@
 import React from "react";
 
-function MailInput({ className = "", text, value, onChange, placeholder = "email@example.com" }) {
+function MailInput({
+  className = "",
+  text,
+  value,
+  onChange,
+  placeholder = "email@example.com",
+}) {
   return (
     <div className="flex flex-col gap-1.5 w-full">
       <p className="text-white text-sm font-medium leadin-[1.2] font-[Inter] text-center tracking-[-0.2px] text-left">

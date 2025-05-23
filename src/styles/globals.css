@@ -22,21 +22,24 @@ body {
 
 @font-face {
   font-family: "Inter";
-  src: url("/assets/fonts/inter/static/Inter_18pt-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/inter/static/Inter_18pt-Regular.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Noto Serif";
-  src: url("/assets/fonts/noto-serif/static/NotoSerif-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/noto-serif/static/NotoSerif-Regular.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Source Code Pro";
-  src: url("/assets/fonts/source-code-pro/static/SourceCodePro-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/source-code-pro/static/SourceCodePro-Regular.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
 }

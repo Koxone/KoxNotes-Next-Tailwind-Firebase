@@ -3,17 +3,20 @@ import React, { useEffect, useState } from "react";
 import CloseNote from "@/components/ui/cards/CloseNote";
 import { getUserNotes } from "/src/utils/getUserNotes";
 
-export default function AllNotesContainer({ context = 'home' }) {
-
-  let emptyText = '';
-  if (context === 'home') {
-    emptyText = "You don't have any notes yet. Start a new note to capture your thoughts and ideas.";
-  } else if (context === 'tags') {
-    emptyText = "You don't have any tags saved yet. Start a new note to capture your thoughts and ideas.";
-  } else if (context === 'archive') {
-    emptyText = "You don't have any notes in your archive yet. Start a new note to capture your thoughts and ideas.";
-  } else if (context === 'search') {
-    emptyText = "You don't have any notes to search yet. Start a new note to capture your thoughts and ideas.";
+export default function AllNotesContainer({ context = "home" }) {
+  let emptyText = "";
+  if (context === "home") {
+    emptyText =
+      "You don't have any notes yet. Start a new note to capture your thoughts and ideas.";
+  } else if (context === "tags") {
+    emptyText =
+      "You don't have any tags saved yet. Start a new note to capture your thoughts and ideas.";
+  } else if (context === "archive") {
+    emptyText =
+      "You don't have any notes in your archive yet. Start a new note to capture your thoughts and ideas.";
+  } else if (context === "search") {
+    emptyText =
+      "You don't have any notes to search yet. Start a new note to capture your thoughts and ideas.";
   }
 
   const [notes, setNotes] = useState([]);

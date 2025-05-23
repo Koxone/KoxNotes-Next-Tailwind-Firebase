@@ -9,7 +9,10 @@ function MainLogo() {
     router.push("/");
   };
   return (
-    <div onClick={handleClick} className="flex flex-row justify-center items-center gap-2.5 cursor-pointer">
+    <div
+      onClick={handleClick}
+      className="flex flex-row justify-center items-center gap-2.5 cursor-pointer"
+    >
       <img src="/assets/images/Feather.png" alt="blue feather icon" />
       <p className="text-white font-[Pacifico] text-[23px]">KoxNotes</p>
     </div>

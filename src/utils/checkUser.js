@@ -1,6 +1,5 @@
 import { doc, getDoc } from "firebase/firestore";
-import { db, auth } from "@/firebase/config"; 
-
+import { db, auth } from "@/firebase/config";
 
 export default function checkUser() {
   const user = auth.currentUser;
@@ -9,5 +8,5 @@ export default function checkUser() {
   } else {
     console.log("No user is logged in");
   }
-    return user;
+  return user;
 }

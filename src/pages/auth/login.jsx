@@ -41,7 +41,11 @@ export default function LoginScreen({ className = "" }) {
       <TitleAuth text="Welcome to KoxNotes" />
       <SubtitleAuth text="Please login to continue" />
 
-      <MailInput text="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <MailInput
+        text="Email Address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
 
       <PasswordInput
         text="Password"
@@ -51,7 +55,12 @@ export default function LoginScreen({ className = "" }) {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <MainButton text="Login" className="" styles="w-full" onClick={handleLogin} />
+      <MainButton
+        text="Login"
+        className=""
+        styles="w-full"
+        onClick={handleLogin}
+      />
 
       <SocialButton>
         No account yet?{" "}

@@ -2,7 +2,13 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-function SettingsCard({ text = "", styles = "", icon = "", mode = "", param = "" }) {
+function SettingsCard({
+  text = "",
+  styles = "",
+  icon = "",
+  mode = "",
+  param = "",
+}) {
   const router = useRouter();
 
   const handleClick = () => {

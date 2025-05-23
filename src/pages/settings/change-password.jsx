@@ -19,7 +19,11 @@ function ResetPasswordScreen({ className = "" }) {
         <MainLogo className="" />
         <TitleAuth text="Reset Your Password" />
         <SubtitleAuth text="Choose a new password to secure your account" />
-        <PasswordInput text="New Password" className="w-full" atLeast="At Least 8 characters" />
+        <PasswordInput
+          text="New Password"
+          className="w-full"
+          atLeast="At Least 8 characters"
+        />
         <PasswordInput text="Confirm New Password" className="w-full" />
         <MainButton text="Reset Password" className="" styles="w-full" />
       </div>

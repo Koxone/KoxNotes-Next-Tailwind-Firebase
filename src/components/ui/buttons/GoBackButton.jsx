@@ -2,7 +2,12 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-function GoBackButton({ icon = "arrow", mode = "darkMode", styles = "", text = "Go Back" }) {
+function GoBackButton({
+  icon = "arrow",
+  mode = "darkMode",
+  styles = "",
+  text = "Go Back",
+}) {
   const router = useRouter();
 
   return (
@@ -10,7 +15,11 @@ function GoBackButton({ icon = "arrow", mode = "darkMode", styles = "", text = "
       onClick={() => router.back()}
       className={`${styles} flex items-center whitespace-nowrap gap-2 text-sm text-white hover:underline cursor-pointer`}
     >
-      <img src={`/assets/images/icon-${icon}-${mode}.svg`} alt="icon" className="w-4 h-4" />
+      <img
+        src={`/assets/images/icon-${icon}-${mode}.svg`}
+        alt="icon"
+        className="w-4 h-4"
+      />
       {text}
     </button>
   );
