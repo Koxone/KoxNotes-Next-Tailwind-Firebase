@@ -51,7 +51,7 @@ export default function NewNoteScreen() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col overflow-hidden bg-neutral-950 rounded-2xl">
+    <div className="flex h-screen w-full flex-col overflow-hidden rounded-2xl bg-neutral-950">
       <Header />
       <OpenNoteHeader onSave={handleSaveNote} />
       <NewNoteTitleInput value={title} onChange={(e) => setTitle(e.target.value)} />

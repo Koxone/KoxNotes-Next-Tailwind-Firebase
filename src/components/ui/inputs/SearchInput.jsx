@@ -4,7 +4,7 @@ function SearchInput({ styles = "" }) {
   return (
     <div className="w-full h-auto flex overflow-hidden">
       <input
-        className={`${styles} w-full h-10 text-white border border-neutral-500 outline-none rounded-sm p-1.5 mb-6`}
+        className={`${styles} w-full h-10 text-white border py-3 px-4 border-neutral-500 placeholder:text-neutral-500 outline-none rounded-lg p-1.5 mb-6 bg-transparent`}
         type="text"
         placeholder="Search Notes"
       />
