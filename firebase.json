@@ -1,0 +1,69 @@
+{
+  "firestore": {
+    "database": "(default)",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "out",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/auth/login",
+        "destination": "/auth/login.html"
+      },
+      {
+        "source": "/auth/signup",
+        "destination": "/auth/signup.html"
+      },
+      {
+        "source": "/auth/forgot-password",
+        "destination": "/auth/forgot-password.html"
+      },
+      {
+        "source": "/settings/change-password",
+        "destination": "/settings/change-password.html"
+      },
+      {
+        "source": "/open-note",
+        "destination": "/open-note.html"
+      },
+      {
+        "source": "/settings",
+        "destination": "/settings.html"
+      },
+      {
+        "source": "/settings/theme",
+        "destination": "/theme.html"
+      },
+      {
+        "source": "/settings/font",
+        "destination": "/font.html"
+      },
+      {
+        "source": "/search",
+        "destination": "/search.html"
+      },
+      {
+        "source": "/tags",
+        "destination": "/tags.html"
+      },
+      {
+        "source": "/archived-notes",
+        "destination": "/archived-notes.html"
+      },
+      {
+        "source": "/notes",
+        "destination": "/notes.html"
+      },
+      {
+        "source": "/new-note",
+        "destination": "/new-note.html"
+      },
+      {
+        "source": "/test",
+        "destination": "/test.html"
+      }
+    ]
+  }
+}
