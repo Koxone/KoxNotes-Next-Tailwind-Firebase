@@ -11,6 +11,7 @@ import OpenNoteInfoCard from "@/components/ui/cards/OpenNoteInfoCard";
 import NoteTextArea from "@/components/ui/inputs/NoteTextArea";
 import Header from "@/components/ui/header/Header";
 import NavBar from "@/components/ui/nav/NavBar";
+import PageHead from "@/components/common/PageHead";
 
 function OpenNoteScreen() {
   const [note, setNote] = useState(null);
@@ -54,36 +55,39 @@ function OpenNoteScreen() {
   }
 
   return (
-    <div
-      style={{ backgroundColor: "var(--background)" }}
-      className="w-full h-screen flex flex-col overflow-hidden gap-2 rounded-lg"
-    >
-      <Header />
+    <>
+      <PageHead title={note.title} description="KoxNotes" />
       <div
-        style={{ backgroundColor: "var(--foreground)" }}
-        className="rounded-xl"
+        style={{ backgroundColor: "var(--background)" }}
+        className="w-full h-screen flex flex-col overflow-hidden gap-2 rounded-lg"
       >
-        <OpenNoteHeader />
-        <div className="px-3">
-          <MainTitle text={note.title || "Sin título"} styles=" ml-2 mb-5" />
+        <Header />
+        <div
+          style={{ backgroundColor: "var(--foreground)" }}
+          className="rounded-xl"
+        >
+          <OpenNoteHeader />
+          <div className="px-3">
+            <MainTitle text={note.title || "Sin título"} styles=" ml-2 mb-5" />
+          </div>
+          <div className="px-3">
+            <OpenNoteInfoCard
+              icon="tag"
+              mode="darkMode"
+              date={`${note.dateText || ""} ${note.timeText || ""}`}
+              tags1={note.tags?.[0] || ""}
+              tag2={note.tags?.[1] || ""}
+              text1="Tags"
+              text2="Last Edited"
+            />
+          </div>
+          <div className="overflow-y-auto px-3">
+            <NoteTextArea value={note.content} onChange={() => {}} />
+          </div>
         </div>
-        <div className="px-3">
-          <OpenNoteInfoCard
-            icon="tag"
-            mode="darkMode"
-            date={`${note.dateText || ""} ${note.timeText || ""}`}
-            tags1={note.tags?.[0] || ""}
-            tag2={note.tags?.[1] || ""}
-            text1="Tags"
-            text2="Last Edited"
-          />
-        </div>
-        <div className="overflow-y-auto px-3">
-          <NoteTextArea value={note.content} onChange={() => {}} />
-        </div>
+        <NavBar />
       </div>
-      <NavBar />
-    </div>
+    </>
   );
 }
 

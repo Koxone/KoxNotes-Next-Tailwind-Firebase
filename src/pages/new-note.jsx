@@ -12,6 +12,7 @@ import NoteTextArea from "@/components/ui/inputs/NoteTextArea";
 import Header from "@/components/ui/header/Header";
 import NavBar from "@/components/ui/nav/NavBar";
 import NewNoteTitleInput from "@/components/ui/inputs/NewNoteTitleInput";
+import PageHead from "@/components/common/PageHead";
 
 export default function NewNoteScreen() {
   const [title, setTitle] = useState("");
@@ -51,25 +52,28 @@ export default function NewNoteScreen() {
   };
 
   return (
-    <div className="flex h-screen w-full flex-col overflow-hidden rounded-2xl bg-neutral-950">
-      <Header />
-      <OpenNoteHeader onSave={handleSaveNote} />
-      <NewNoteTitleInput
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <NewNoteInfoCard
-        tagsText={tagsText}
-        onChange={(e) => setTagsText(e.target.value)}
-        mode="darkMode"
-      />
-      <div className="overflow-y-auto px-3">
-        <NoteTextArea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
+    <>
+      <PageHead title="New Note" />
+      <div className="flex h-screen w-full flex-col overflow-hidden rounded-2xl bg-neutral-950">
+        <Header />
+        <OpenNoteHeader onSave={handleSaveNote} />
+        <NewNoteTitleInput
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
+        <NewNoteInfoCard
+          tagsText={tagsText}
+          onChange={(e) => setTagsText(e.target.value)}
+          mode="darkMode"
+        />
+        <div className="overflow-y-auto px-3">
+          <NoteTextArea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
+        <NavBar />
       </div>
-      <NavBar />
-    </div>
+    </>
   );
 }

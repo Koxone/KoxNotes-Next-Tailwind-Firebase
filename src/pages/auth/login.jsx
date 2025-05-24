@@ -17,6 +17,7 @@ import SubtitleAuth from "@/components/ui/text/auth/subtitle";
 import PasswordInput from "@/components/ui/inputs/passwordInput";
 import MainLogo from "@/components/ui/logo/MainLogo";
 import SocialButton from "@/components/ui/buttons/SocialButton";
+import PageHead from "@/components/common/PageHead";
 
 export default function LoginScreen({ className = "" }) {
   const router = useRouter();
@@ -34,40 +35,43 @@ export default function LoginScreen({ className = "" }) {
   };
 
   return (
-    <div
-      className={`${className} bg-[var(--foreground)] w-full h-full rounded-2xl py-12 px-4 flex flex-col justify-center items-center gap-4`}
-    >
-      <MainLogo className="" />
-      <TitleAuth text="Welcome to KoxNotes" />
-      <SubtitleAuth text="Please login to continue" />
+    <>
+      <PageHead title="Login" />
+      <div
+        className={`${className} bg-[var(--foreground)] w-full h-full rounded-2xl py-12 px-4 flex flex-col justify-center items-center gap-4`}
+      >
+        <MainLogo className="" />
+        <TitleAuth text="Welcome to KoxNotes" />
+        <SubtitleAuth text="Please login to continue" />
 
-      <MailInput
-        text="Email Address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        <MailInput
+          text="Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <PasswordInput
-        text="Password"
-        forgot="Forgot"
-        className="w-full"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <PasswordInput
+          text="Password"
+          forgot="Forgot"
+          className="w-full"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <MainButton
-        text="Login"
-        className=""
-        styles="w-full"
-        onClick={handleLogin}
-      />
+        <MainButton
+          text="Login"
+          className=""
+          styles="w-full"
+          onClick={handleLogin}
+        />
 
-      <SocialButton>
-        No account yet?{" "}
-        <Link href="/auth/signup" className="text-blue-400">
-          Sign Up
-        </Link>
-      </SocialButton>
-    </div>
+        <SocialButton>
+          No account yet?{" "}
+          <Link href="/auth/signup" className="text-blue-400">
+            Sign Up
+          </Link>
+        </SocialButton>
+      </div>
+    </>
   );
 }
