@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GoBackButton from "@/components/ui/buttons/GoBackButton";
 import MainTitle from "@/components/ui/text/main/MainTitle";
 import SettingsOptionCard from "@/components/ui/cards/SettingsOptionCard";
@@ -7,6 +7,19 @@ import Header from "@/components/ui/header/Header";
 import NavBar from "@/components/ui/nav/NavBar";
 
 function SettingsOptionFontOpenScreen({}) {
+  const [selectedFont, setSelectedFont] = useState("Inter");
+  useEffect(() => {
+    const saved = localStorage.getItem("fontOption");
+    if (saved) {
+      setSelectedFont(saved);
+      document.documentElement.setAttribute("data-font", saved);
+    }
+  }, []);
+
+  const toggleFont = (font) => {
+    localStorage.setItem("fontOption", font);
+    document.documentElement.setAttribute("data-font", font);
+  };
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center overflow-hidden">
       <Header />
@@ -24,9 +37,11 @@ function SettingsOptionFontOpenScreen({}) {
         <SettingsOptionCard
           icon="font-sans-serif"
           mode="darkMode"
-          title="Sans-Serif"
-          subtitle="Clean and modern, easy to read"
+          title="Inter (Original)"
+          subtitle="Modern and precise, made to be clear"
           styleInside=""
+          onClick={() => setSelectedFont("inter")}
+          selected={selectedFont === "Inter"}
         />
         <SettingsOptionCard
           icon="font-serif"
@@ -34,6 +49,8 @@ function SettingsOptionFontOpenScreen({}) {
           title="Serif"
           subtitle="Classic and elegant for a timeless feel."
           styleInside=""
+          onClick={() => setSelectedFont("serif")}
+          selected={selectedFont === "serif"}
         />
         <SettingsOptionCard
           icon="font-monospace"
@@ -41,8 +58,12 @@ function SettingsOptionFontOpenScreen({}) {
           title="Monospace"
           subtitle="Code like, great for a technical vibe."
           styleInside=""
+          onClick={() => setSelectedFont("mono")}
+          selected={selectedFont === "mono"}
         />
-        <MainButton text="Apply Changes" styles="w-[132px] self-end mt-[8px]" />
+        <MainButton 
+        onClick={() => toggleFont(selectedFont)}
+        text="Apply Changes" styles="w-[132px] self-end mt-[8px]" />
       </div>
       <NavBar />
     </div>
