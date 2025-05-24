@@ -12,7 +12,7 @@ function NewNoteInfoCard({ mode = "", tagsText, onChange }) {
         </div>
         <div className="right">
           <input
-            className="h-14 bg-transparent text-white outline-none placeholder:whitespace-pre-wrap placeholder:text-sm placeholder:font-normal placeholder:leading-[130%] placeholder:text-neutral-400"
+            className="h-14 bg-transparent  outline-none placeholder:whitespace-pre-wrap placeholder:text-sm placeholder:font-normal placeholder:leading-[130%] placeholder:text-neutral-400"
             type="text"
             maxLength="20"
             value={tagsText}

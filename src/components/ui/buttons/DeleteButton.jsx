@@ -1,13 +1,14 @@
 import React from "react";
 import { deleteNote } from "@/utils/deleteNote";
+import useThemeMode from "../../../hooks/useThemeMode";
 
 function DeleteButton({
   icon = "",
-  mode = "",
   styles = "",
   noteId = "",
   onSuccess,
 }) {
+  const mode = useThemeMode();
   const handleClick = async () => {
     const confirmDelete = confirm("Are you sure you want to delete this note?");
     if (!confirmDelete) return;

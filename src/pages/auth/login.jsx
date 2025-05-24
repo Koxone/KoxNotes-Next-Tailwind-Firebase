@@ -35,7 +35,7 @@ export default function LoginScreen({ className = "" }) {
 
   return (
     <div
-      className={`${className} bg-neutral-950 w-full h-full rounded-2xl py-12 px-4 flex flex-col justify-center items-center gap-4`}
+      className={`${className} bg-[var(--foreground)] w-full h-full rounded-2xl py-12 px-4 flex flex-col justify-center items-center gap-4`}
     >
       <MainLogo className="" />
       <TitleAuth text="Welcome to KoxNotes" />

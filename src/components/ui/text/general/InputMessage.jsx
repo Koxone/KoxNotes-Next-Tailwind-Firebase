@@ -11,7 +11,7 @@ function InputMessage({ atLeast = "", styles = "" }) {
         alt=""
       />
       <p
-        className={`text-neutral-400 text-[12px] font-medium leadin-[1.4] font-[Inter] tracking-[-0.2px] text-left ${styles}`}
+        className={`text-neutral-400 text-[12px] font-medium leadin-[1.4]  tracking-[-0.2px] text-left ${styles}`}
       >
         {atLeast}
       </p>

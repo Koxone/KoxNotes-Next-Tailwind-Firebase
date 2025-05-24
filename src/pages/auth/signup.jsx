@@ -35,7 +35,7 @@ export default function SignUpScreen({ className = "" }) {
 
   return (
     <div
-      className={`${className} bg-neutral-950 w-full h-full rounded-2xl py-12 px-4 flex flex-col justify-center items-center gap-4`}
+      className={`${className} bg-[var(--foreground)] w-full h-full rounded-2xl py-12 px-4 flex flex-col justify-center items-center gap-4`}
     >
       <MainLogo className="" />
       <TitleAuth text="Create Your Account" />
@@ -58,7 +58,7 @@ export default function SignUpScreen({ className = "" }) {
 
       <MainButton
         text="Sign Up"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-[Inter] text-[16px] py-[12.5px] px-[134.5px] whitespace-nowrap rounded-[8px] cursor-pointer"
+        className="bg-blue-500 hover:bg-blue-700   text-[16px] py-[12.5px] px-[134.5px] whitespace-nowrap rounded-[8px] cursor-pointer"
         styles="w-full"
         onClick={handleSignUp}
       />

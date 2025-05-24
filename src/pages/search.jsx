@@ -11,10 +11,13 @@ function SearchScreen() {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <Header />
-      <div className="w-full h-screen p-4 flex flex-col items-start gap-4 overflow-hidden flex-shrink-0 rounded-2xl bg-neutral-950">
+      <div
+        style={{ backgroundColor: "var(--foreground" }}
+        className="w-full h-screen p-4 flex flex-col items-start gap-4 overflow-hidden flex-shrink-0 rounded-2xl"
+      >
         <MainTitle
           text="Search"
-          styles="text-white mb-3"
+          styles=" mb-3"
           subtitleStyles="text-neutral-500"
           subtitle="All notes matching Dev are displayed below."
         />

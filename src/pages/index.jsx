@@ -8,8 +8,11 @@ function MainScreen() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <Header />
-      <div className="w-full h-full p-4 flex flex-col justify-center items-center overflow-hidden bg-neutral-950 rounded-2xl">
-        <MainTitle text="All Notes" styles="text-white mb-4" />
+      <div
+        style={{ backgroundColor: "var(--foreground)" }}
+        className="w-full h-full p-4 flex flex-col justify-center items-center overflow-hidden rounded-2xl"
+      >
+        <MainTitle text="All Notes" styles=" mb-4" />
         <AllNotesContainer />
         <NewNoteButton icon="plus" mode="darkMode" />
       </div>

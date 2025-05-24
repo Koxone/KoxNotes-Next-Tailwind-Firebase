@@ -10,7 +10,7 @@ import { deleteNote } from "@/utils/deleteNote";
 
 import { useRouter } from "next/navigation";
 
-function OpenNoteHeader({ onSave, noteId }) {
+function OpenNoteHeader({ onSave, noteId, styles = '' }) {
   const router = useRouter();
 
   const goTo = () => {
@@ -18,7 +18,7 @@ function OpenNoteHeader({ onSave, noteId }) {
   };
 
   return (
-    <div className="flex py-3 w-full sticky top-0 px-4 border-b border-neutral-800 mb-3">
+    <div className={`flex py-3 w-full sticky top-0 px-4 border-b border-neutral-800 mb-3 ${styles}`}>
       <GoBackButton
         styles="mr-[60px]"
         goTo={goTo}

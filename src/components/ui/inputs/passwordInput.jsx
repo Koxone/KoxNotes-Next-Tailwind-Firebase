@@ -12,7 +12,7 @@ function PasswordInput({
   return (
     <div className="flex flex-col gap-1.5 w-full">
       <div className="flex flex-row justify-between items-center">
-        <p className="text-white text-sm font-medium leading-[1.2] font-[Inter] tracking-[-0.2px] text-left">
+        <p className=" text-sm font-medium leading-[1.2]  tracking-[-0.2px] text-left">
           {text}
         </p>
         <Link
@@ -29,7 +29,7 @@ function PasswordInput({
           alt="hide password icon"
         />
         <input
-          className={`${className} border border-neutral-600 py-3 px-4 rounded-[8px] placeholder:text-neutral-500 bg-none text-white`}
+          className={`${className} border border-neutral-600 py-3 px-4 rounded-[8px] placeholder:text-neutral-500 bg-none  bg-transparent outline-none`}
           type="password"
           name="password"
           required
@@ -46,7 +46,7 @@ function PasswordInput({
           src="/assets/images/icon-info-darkMode.svg"
           alt="info icon"
         />
-        <p className="text-neutral-400 text-[12px] font-medium leading-[1.4] font-[Inter] tracking-[-0.2px] text-left">
+        <p className="text-neutral-400 text-[12px] font-medium leading-[1.4]  tracking-[-0.2px] text-left">
           {atLeast}
         </p>
       </div>

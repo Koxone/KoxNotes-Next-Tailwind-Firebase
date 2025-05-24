@@ -1,19 +1,21 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
+import useThemeMode from "../../../hooks/useThemeMode";
 
 function GoBackButton({
   icon = "arrow",
-  mode = "darkMode",
   styles = "",
   text = "Go Back",
 }) {
+  const mode = useThemeMode();
   const router = useRouter();
 
   return (
     <button
+      style={{ color: "var(--color)" }}
       onClick={() => router.back()}
-      className={`${styles} flex items-center whitespace-nowrap gap-2 text-sm text-white hover:underline cursor-pointer`}
+      className={`${styles} flex items-center whitespace-nowrap gap-2 text-sm hover:underline cursor-pointer`}
     >
       <img
         src={`/assets/images/icon-${icon}-${mode}.svg`}

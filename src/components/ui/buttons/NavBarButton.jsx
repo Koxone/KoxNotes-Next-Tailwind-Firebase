@@ -32,7 +32,7 @@ function NavBarButton({ icon = "", mode = "" }) {
   return (
     <button
       onClick={navigationHandler}
-      className="w-[62px] h-8 border-neutral-50 flex justify-center items-center cursor-pointer hover:bg-neutral-700 hover:rounded-sm"
+      className="w-[62px] h-8 border-neutral-50 flex justify-center items-center cursor-pointer hover:bg-[var(--hover)] hover:rounded-sm"
     >
       <img src={`/assets/images/icon-${icon}-${mode}.svg`} alt="icon" />
     </button>

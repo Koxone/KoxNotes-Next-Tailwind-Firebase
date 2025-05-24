@@ -1,14 +1,15 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React from "react";
+import useThemeMode from "@/hooks/useThemeMode";
 
 function SettingsCard({
   text = "",
   styles = "",
   icon = "",
-  mode = "",
   param = "",
 }) {
+  const mode = useThemeMode();
   const router = useRouter();
 
   const handleClick = () => {
@@ -28,7 +29,7 @@ function SettingsCard({
   return (
     <button
       onClick={handleClick}
-      className={`${styles} font-normal text-sm font-[Inter] flex items-center gap-2 w-full cursor-pointer hover:bg-neutral-700 hover:rounded-sm p-2`}
+      className={`${styles} font-normal text-sm  flex items-center gap-2 w-full cursor-pointer hover:bg-[var(--hover)] hover:rounded-sm p-2`}
     >
       <img
         className="w-5 h-5"

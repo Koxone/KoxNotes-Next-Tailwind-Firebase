@@ -8,26 +8,29 @@ function SettingsScreen() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center overflow-hidden">
       <Header />
-      <div className="w-full h-screen py-6 px-4 rounded-2xl bg-neutral-950">
-        <MainTitle text="Settings" styles="text-white" />
+      <div
+        style={{ backgroundColor: "var(--foreground" }}
+        className="w-full h-screen py-6 px-4 rounded-2xl"
+      >
+        <MainTitle text="Settings" styles="" />
         <div className="flex flex-col items-start justify-start gap-4 mt-4 w-full">
           <SettingsCard
             text="Color Theme"
-            styles="text-white"
+            styles=""
             icon="sun"
             mode="darkMode"
             param="theme"
           />
           <SettingsCard
             text="Font Theme"
-            styles="text-white"
+            styles=""
             icon="font"
             mode="darkMode"
             param="font"
           />
           <SettingsCard
             text="Change Password"
-            styles="text-white"
+            styles=""
             icon="lock"
             mode="darkMode"
             param="change"
@@ -35,7 +38,7 @@ function SettingsScreen() {
           <hr className="w-full border-t border-neutral-700 my-4" />
           <SettingsCard
             text="Logout"
-            styles="text-white"
+            styles=""
             icon="logout"
             mode="darkMode"
             param="logout"

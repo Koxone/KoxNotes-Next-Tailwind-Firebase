@@ -14,15 +14,15 @@ function CloseNote({ title = "", date = "", tags = [], id }) {
 
   const goTo = () => {
     localStorage.setItem("selectedNoteId", id); // Guardamos el id
-    router.push("/open-note/page.jsx"); // Navegamos a la vista estática
+    router.push("/open-note"); // Navegamos a la vista estática
   };
 
   return (
     <div
       onClick={goTo}
-      className="w-full flex flex-col gap-3.5 p-2 border-b border-neutral-800 cursor-pointer"
+      className="main w-full flex flex-col gap-3.5 p-2 border-b border-neutral-800 cursor-pointer"
     >
-      <p className="text-[16px] font-[Inter] font-semibold leading-[120%] text-white text-left tracking-[-0.3px]">
+      <p className="text-[16px]  font-semibold leading-[120%]  text-left tracking-[-0.3px]">
         {title}
       </p>
       <div className="flex flex-row gap-2">
@@ -30,7 +30,10 @@ function CloseNote({ title = "", date = "", tags = [], id }) {
           <Tag key={tag} text={tag} />
         ))}
       </div>
-      <p className="text-xs font-[Inter] font-normal leading-[120%] text-neutral-300 text-left tracking-[-0.3px]">
+      <p
+        style={{ color: "var(--text)" }}
+        className="text-xs  font-normal leading-[120%] text-left tracking-[-0.3px]"
+      >
         {date}
       </p>
     </div>

@@ -7,10 +7,13 @@ function ArchivedNotesScreen() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center">
       <Header />
-      <div className="w-full h-full p-4 flex flex-col justify-center items-center gap-4 overflow-hidden rounded-2xl bg-neutral-950">
+      <div
+        style={{ backgroundColor: "var(--foreground" }}
+        className="w-full h-full p-4 flex flex-col justify-center items-center gap-4 overflow-hidden rounded-2xl"
+      >
         <MainTitle
           text="Archived Notes"
-          styles="text-white mb-3"
+          styles=" mb-3"
           subtitle="All your archived notes are stored here. You can restore or delete them anytime."
           subtitleStyles="text-neutral-500"
         />

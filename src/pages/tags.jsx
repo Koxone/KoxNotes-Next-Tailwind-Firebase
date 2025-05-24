@@ -8,8 +8,11 @@ function TagsListScreen() {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <Header />
-      <div className="w-full h-screen pt-6 px-6 overflow-hidden flex flex-col rounded-2xl bg-neutral-950">
-        <MainTitle text="Tags" styles="text-white mb-4" />
+      <div
+        style={{ backgroundColor: "var(--foreground" }}
+        className="w-full h-screen pt-6 px-6 overflow-hidden flex flex-col rounded-2xl"
+      >
+        <MainTitle text="Tags" styles=" mb-4" />
         <div className="w-full h-fit overflow-y-auto flex flex-col gap-1">
           <CloseTagListCard mode="darkMode" text="Cooking" />
           <CloseTagListCard mode="darkMode" text="Cooking" />

@@ -32,8 +32,12 @@ export default function AllNotesContainer({ context = "home" }) {
   return (
     <div className="w-full h-full flex flex-col overflow-y-auto">
       {notes.length === 0 ? (
-        <div className="w-full rounded-sm bg-neutral-800 flex justify-center items-center p-3">
-          <p className="text-neutral-400 text-center text-sm leading-[130%]">
+        <div 
+          style={{ backgroundColor: "var(--secondaryBackground)" }}
+        className="w-full rounded-sm flex justify-center items-center p-3">
+          <p 
+            style={{ color: "var(--color)" }}
+          className="text-center text-sm leading-[130%]">
             {emptyText}
           </p>
         </div>

@@ -11,9 +11,9 @@ function MainTitle({
   return (
     <div className="w-full h-auto flex flex-col justify-start items-start">
       <h2
-        className={`text-2xl font-bold leading-[120%] ${styles} font-[Inter] text-left w-full`}
+        className={`text-2xl font-bold leading-[120%] ${styles}  text-left w-full`}
       >
-        {text} <span className="text-white">{tag}</span>
+        {text} <span className="">{tag}</span>
       </h2>
       <MainSubtitle text={subtitle} styles={subtitleStyles} />
     </div>

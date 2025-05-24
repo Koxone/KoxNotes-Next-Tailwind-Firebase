@@ -9,7 +9,7 @@ function GeneralPasswordInput({
   return (
     <div className="flex flex-col gap-1.5 w-full">
       <div className="flex flex-row justify-between items-center">
-        <p className="text-white text-sm font-medium leadin-[1.2] font-[Inter] tracking-[-0.2px] text-left">
+        <p className=" text-sm font-medium leadin-[1.2]  tracking-[-0.2px] text-left">
           {text}
         </p>
       </div>
@@ -20,7 +20,7 @@ function GeneralPasswordInput({
           alt=""
         />
         <input
-          className={`${className} border border-neutral-600 py-3 px-4 rounded-[8px] placeholder:text-neutral-500 bg-none text-white outline-none`}
+          className={`${className} border border-neutral-600 py-3 px-4 rounded-[8px] placeholder:text-neutral-500 bg-none  outline-none`}
           type="password"
           name="password"
           required

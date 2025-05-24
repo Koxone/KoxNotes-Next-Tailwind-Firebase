@@ -3,22 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #262626;
+  --foreground: #0a0a0a;
+  --color: #ffffff;
 }
 
 body {
-  color: var(--foreground);
-  background: #262626;
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color);
+  background: var(--background); 
+  font-family: Inter;
 }
+
+[data-theme="dark"] {
+  --background: #262626; /*neutral-800*/
+  --secondaryBackground: #525252; /*neutral-600*/
+  --foreground: #0a0a0a;
+  --color: #ffffff;
+  --colorSecondary: #a3a3a3; /*neutral-300*/
+  --hover: #404040; /*neutral-700*/
+}
+
+[data-theme="light"] {
+  --background: #ffffff; /*white*/
+  --secondaryBackground: #d4d4d4; /*neutral-300*/
+  --foreground: #ffffff;
+  --color: #000000;
+  --colorSecondary: #404040;
+  --hover: #d4d4d4; /*neutral-200*/
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a; 
+    --foreground: #ededed;
+  }
+} */
 
 @font-face {
   font-family: "Inter";

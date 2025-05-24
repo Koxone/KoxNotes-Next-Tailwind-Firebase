@@ -16,7 +16,7 @@ function ForgotPasswordScreen({ className = "" }) {
     <div className="w-full h-screen flex flex-col justify-center items-center overflow-hidden">
       <Header />
       <div
-        className={`${className} bg-neutral-950 w-full h-screen rounded-2xl py-12 px-4 flex flex-col items-center gap-4 overflow-hidden`}
+        className={`${className} bg-[var(--foreground)] w-full h-screen rounded-2xl py-12 px-4 flex flex-col items-center gap-4 overflow-hidden`}
       >
         <GoBackButton
           icon="arrow-left"
