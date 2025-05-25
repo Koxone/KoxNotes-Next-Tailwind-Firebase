@@ -24,7 +24,7 @@ function DeleteButton({
   return (
     <button
       onClick={handleClick}
-      className={`w-[18px] h-[18px] ${styles} cursor-pointer`}
+      className={`w-[18px] h-[18px] ${styles} cursor-pointer hover:scale-110 transition-transform duration-200 ease-in-out`}
     >
       <img src={`/assets/images/icon-${icon}-${mode}.svg`} alt="icon" />
     </button>

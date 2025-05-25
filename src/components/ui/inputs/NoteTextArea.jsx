@@ -5,7 +5,7 @@ function NoteTextArea({ value, onChange }) {
     <textarea
       value={value}
       onChange={onChange}
-      className="w-full h-full resize-none break-words bg-transparent outline-none overflow-x-hidden px-2"
+      className="w-full h-full resize-none break-words bg-transparent outline-none overflow-x-hidden px-4 pb-4"
     />
   );
 }
