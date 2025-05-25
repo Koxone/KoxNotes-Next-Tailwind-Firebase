@@ -15,7 +15,7 @@ function ArchivedNotesScreen() {
         <Header />
         <div
           style={{ backgroundColor: "var(--foreground" }}
-          className="w-full h-full p-4 flex flex-col justify-center items-center gap-4 overflow-hidden rounded-2xl"
+          className="w-full h-full p-4 flex flex-col justify-center items-center gap-4 overflow-hidden rounded-t-2xl"
         >
           <MainTitle
             text="Archived Notes"

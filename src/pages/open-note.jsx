@@ -10,7 +10,6 @@ import MainTitle from "@/components/ui/text/main/MainTitle";
 import OpenNoteInfoCard from "@/components/ui/cards/OpenNoteInfoCard";
 import NoteTextArea from "@/components/ui/inputs/NoteTextArea";
 import Header from "@/components/ui/header/Header";
-import NavBar from "@/components/ui/nav/NavBar";
 import PageHead from "@/components/common/PageHead";
 
 function OpenNoteScreen() {
@@ -57,16 +56,10 @@ function OpenNoteScreen() {
   return (
     <>
       <PageHead title={note.title} description="KoxNotes" />
-      <div
-        style={{ backgroundColor: "var(--background)" }}
-        className="w-full h-screen flex flex-col overflow-hidden gap-2 rounded-lg"
-      >
+      <div className="w-full h-screen flex flex-col overflow-hidden rounded-lg">
         <Header />
-        <div
-          style={{ backgroundColor: "var(--foreground)" }}
-          className="rounded-xl"
-        >
-          <OpenNoteHeader />
+        <div className="w-full h-screen flex flex-col bg-[var(--foreground)]">
+          <OpenNoteHeader styles="sticky top-0" />
           <div className="px-3">
             <MainTitle text={note.title || "Sin título"} styles=" ml-2 mb-5" />
           </div>
@@ -81,11 +74,10 @@ function OpenNoteScreen() {
               text2="Last Edited"
             />
           </div>
-          <div className="overflow-y-auto px-3">
+          <div className="flex-1 overflow-y-auto">
             <NoteTextArea value={note.content} onChange={() => {}} />
           </div>
         </div>
-        <NavBar />
       </div>
     </>
   );

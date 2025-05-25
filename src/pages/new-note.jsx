@@ -54,25 +54,29 @@ export default function NewNoteScreen() {
   return (
     <>
       <PageHead title="New Note" />
-      <div className="flex h-screen w-full flex-col overflow-hidden rounded-2xl bg-neutral-950">
+      <div className="w-full h-screen flex flex-col overflow-hidden rounded-lg">
         <Header />
-        <OpenNoteHeader onSave={handleSaveNote} />
-        <NewNoteTitleInput
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <NewNoteInfoCard
-          tagsText={tagsText}
-          onChange={(e) => setTagsText(e.target.value)}
-          mode="darkMode"
-        />
-        <div className="overflow-y-auto px-3">
-          <NoteTextArea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
+        <div className="w-full h-screen flex flex-col justify-center rounded-xl bg-[var(--foreground)]">
+          <OpenNoteHeader onSave={handleSaveNote} />
+          <div className="flex flex-col items-center justify-center px-3">
+            <NewNoteTitleInput
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <NewNoteInfoCard
+              tagsText={tagsText}
+              onChange={(e) => setTagsText(e.target.value)}
+              mode="darkMode"
+            />
+          </div>
+
+          <div className="flex-1 overflow-y-auto">
+            <NoteTextArea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+          </div>
         </div>
-        <NavBar />
       </div>
     </>
   );

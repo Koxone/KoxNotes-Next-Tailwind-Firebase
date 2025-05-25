@@ -16,7 +16,7 @@ function MainScreen() {
         <Header />
         <div
           style={{ backgroundColor: "var(--foreground)" }}
-          className="w-full h-full p-4 flex flex-col justify-center items-center overflow-hidden rounded-2xl"
+          className="w-full h-full p-4 flex flex-col justify-center items-center overflow-hidden rounded-t-2xl"
         >
           <MainTitle text="All Notes" styles=" mb-4" />
           <AllNotesContainer />

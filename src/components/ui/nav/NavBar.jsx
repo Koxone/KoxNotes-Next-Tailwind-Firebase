@@ -7,10 +7,10 @@ import useThemeMode from "@/hooks/useThemeMode";
 function NavBar() {
   const mode = useThemeMode();
   return (
-    <div 
-    style={{ backgroundColor: "var(--background)" }}
-    className="w-full h-14 flex flex-row justify-between items-center absolute bottom-0 py-3 px-8">
-      {/* <NewNoteButton icon="plus" mode="darkMode"/> */}
+    <div
+      style={{ backgroundColor: "var(--background)" }}
+      className="w-full h-14 flex flex-row justify-between items-center py-3 px-8"
+    >
       <NavBarButton icon="home" mode={mode} />
       <NavBarButton icon="search" mode={mode} />
       <NavBarButton icon="archive" mode={mode} />

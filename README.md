@@ -1,40 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# KoxNotes - Next.js + Firebase + Tailwind Note-Taking App
 
-## Getting Started
+KoxNotes is a modern and responsive note-taking application built with Next.js, Firebase Authentication, and Tailwind CSS.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 📝 Create, edit, and delete notes
+- 🔍 Search and filter notes
+- 🔐 User authentication with Firebase (email/password and Google login)
+- 🌈 Responsive and clean UI using Tailwind CSS
+- 💾 Data persistence through Firebase backend
+- 🧠 Authentication state management
+- ☁️ Firebase Hosting deployment
+
+## 🛠️ Technologies Used
+
+- **Next.js** - React framework for production
+- **Firebase** - Backend services (Authentication, Hosting)
+- **Tailwind CSS** - Utility-first CSS framework
+- **React** - JavaScript library for building UIs
+
+## 📦 Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Koxone/KoxNotes-Next-Tailwind.git
+   cd KoxNotes-Next-Tailwind
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Add your Firebase configuration:**
+   - Create a file at `src/firebase/config.js`
+   - Paste your Firebase configuration and export the `auth` object:
+     ```js
+     import { initializeApp } from "firebase/app";
+     import { getAuth } from "firebase/auth";
+
+     const firebaseConfig = {
+       apiKey: "YOUR_API_KEY",
+       authDomain: "YOUR_PROJECT.firebaseapp.com",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_PROJECT.appspot.com",
+       messagingSenderId: "YOUR_SENDER_ID",
+       appId: "YOUR_APP_ID"
+     };
+
+     const app = initializeApp(firebaseConfig);
+     export const auth = getAuth(app);
+     ```
+
+4. **Run development server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open in browser:**
+   ```
+   http://localhost:3000
+   ```
+
+## 🔐 Authentication
+
+- **Email and password registration/login**
+- **Google login using Firebase `signInWithPopup()`**
+
+## 📁 Folder Structure
+
+```
+KoxNotes-Next-Tailwind/
+├── src/
+│   ├── app/              # Application routes (Next.js app directory)
+│   ├── components/       # UI components (buttons, inputs, logos, etc.)
+│   ├── firebase/         # Firebase configuration
+│   └── styles/           # Global styles
+├── public/               # Static assets
+├── .firebaserc           # Firebase project configuration
+├── firebase.json         # Firebase hosting settings
+├── tailwind.config.js    # Tailwind CSS config
+├── postcss.config.js     # PostCSS config
+└── package.json          # Project metadata and dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Deployment with Firebase Hosting
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. **Install Firebase CLI:**
+   ```bash
+   npm install -g firebase-tools
+   ```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+2. **Login to Firebase:**
+   ```bash
+   firebase login
+   ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+3. **Initialize Firebase in the project:**
+   ```bash
+   firebase init
+   ```
+   - Select `Hosting` and link your Firebase project
+   - Set `out` as the public directory
+   - Enable single-page app rewrite
+   - Skip GitHub deployment if not needed
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Build the project:**
+   ```bash
+   npm run build
+   ```
 
-## Learn More
+5. **Deploy to Firebase:**
+   ```bash
+   firebase deploy
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+6. **Your app will be live at:**
+   ```
+   https://your-project-name.web.app
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## ✨ Credits
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Developed with ❤️ by [Koxone](https://github.com/Koxone)
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.

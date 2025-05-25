@@ -1,6 +1,4 @@
-import React from "react";
-import MainTagsTitle from "@/components/ui/text/main/MainTagsTitle";
-import GoBackButton from "@/components/ui/buttons/GoBackButton";
+import React, { useState, useEffect } from "react";
 import MainTitle from "@/components/ui/text/main/MainTitle";
 import AllNotesContainer from "@/components/ui/containers/AllNotesContainer";
 import SearchInput from "@/components/ui/inputs/SearchInput";
@@ -9,14 +7,15 @@ import Header from "@/components/ui/header/Header";
 import PageHead from "@/components/common/PageHead";
 
 function SearchScreen() {
+  const [searchValue, setSearchValue] = useState("");
   return (
     <>
       <PageHead title="Search" />
-      <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="w-full h-screen flex flex-col justify-center items-center">
         <Header />
         <div
-          style={{ backgroundColor: "var(--foreground" }}
-          className="w-full h-screen p-4 flex flex-col items-start gap-4 overflow-hidden flex-shrink-0 rounded-2xl"
+          style={{ backgroundColor: "var(--foreground)" }}
+          className="w-full h-full p-4 flex flex-col justify-center items-center overflow-hidden rounded-2xl gap-4"
         >
           <MainTitle
             text="Search"
@@ -24,8 +23,8 @@ function SearchScreen() {
             subtitleStyles="text-neutral-500"
             subtitle="All notes matching Dev are displayed below."
           />
-          <SearchInput />
-          <AllNotesContainer />
+          <SearchInput value={searchValue} setValue={setSearchValue} />
+          <AllNotesContainer context="search" searchValue={searchValue} />
         </div>
         <NavBar />
       </div>

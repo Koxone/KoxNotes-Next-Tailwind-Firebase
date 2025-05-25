@@ -18,7 +18,7 @@ function OpenNoteHeader({ onSave, noteId, styles = '' }) {
   };
 
   return (
-    <div className={`flex py-3 w-full sticky top-0 px-4 border-b border-neutral-800 mb-3 ${styles}`}>
+    <div className={`flex py-3 justify-center w-full px-4 border-b border-neutral-800 mb-3 ${styles}`}>
       <GoBackButton
         styles="mr-[60px]"
         goTo={goTo}
