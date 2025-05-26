@@ -78,6 +78,7 @@ function OpenNoteScreen() {
             onSave={handleSave}
             noteId={noteId}
             styles="sticky top-0"
+            saveText="Note updated successfully"
           />
           <div className="px-3">
             <MainTitle text={note.title || "Sin título"} styles=" ml-2 mb-5" />

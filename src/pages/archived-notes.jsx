@@ -24,7 +24,7 @@ function ArchivedNotesScreen() {
             subtitleStyles="text-neutral-500"
           />
           <div className="w-full h-full flex flex-col overflow-y-auto">
-            <AllNotesContainer context="archive" />
+            <AllNotesContainer context="archive"  />
           </div>
         </div>
         <NavBar />

@@ -5,11 +5,12 @@ import ArchiveButton from "../buttons/ArchiveButton";
 import CancelButton from "../buttons/CancelButton";
 import SaveNoteButton from "../buttons/SaveNoteButton";
 import GoBackButton from "../buttons/GoBackButton";
+import RestoreButton from "../buttons/RestoreButton";
 
 import { useRouter } from "next/navigation";
 import { useToast } from "@/context/ToastContext";
 
-function OpenNoteHeader({ onSave, noteId, styles = "" }) {
+function OpenNoteHeader({ onSave, noteId, styles = "", saveText = "" }) {
   const router = useRouter();
   const { showToast } = useToast();
 
@@ -26,6 +27,7 @@ function OpenNoteHeader({ onSave, noteId, styles = "" }) {
         goTo={goTo}
         icon="arrow-left"
         mode="darkMode"
+        alt="Go back"
       />
       <DeleteButton
         icon="delete"
@@ -34,16 +36,34 @@ function OpenNoteHeader({ onSave, noteId, styles = "" }) {
         noteId={noteId}
         onSuccess={() => {
           router.push("/");
-          showToast("Nota eliminada correctamente");
+          showToast("Note deleted successfully");
         }}
       />
-      <ArchiveButton icon="archive" mode="darkMode" styles="mr-[16px]" />
+      <RestoreButton
+        icon="restore"
+        mode="darkMode"
+        styles="mr-[16px]"
+        noteId={noteId}
+        onSuccess={() => {
+          router.push("/");
+          showToast("Note restored successfully");
+        }}/>
+      <ArchiveButton
+        icon="archive"
+        mode="darkMode"
+        styles="mr-[16px]"
+        noteId={noteId}
+        onSuccess={() => {
+          router.push("/");
+          showToast("Note archived successfully");
+        }}
+      />
       <CancelButton styles="mr-[32px]" />
       <SaveNoteButton
         onClick={onSave}
         onSuccess={() => {
           router.back();
-          showToast("Nota guardada correctamente");
+          showToast(`${saveText}`);
         }}
       />
     </div>

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { deleteNote } from "@/utils/deleteNote";
 import useThemeMode from "../../../hooks/useThemeMode";
+import { unarchiveNote } from "@/utils/unarchiveNote";
 import Modal from "@/components/feedback/Modal";
 
-function DeleteButton({ icon = "", styles = "", noteId = "", onSuccess }) {
+function RestoreButton({ icon = "", styles = "", noteId = "", onSuccess }) {
   const mode = useThemeMode();
   const [showModal, setShowModal] = useState(false);
 
-  const handleConfirmDelete = async () => {
+  const handleConfirmRestore = async () => {
     try {
-      await deleteNote(noteId);
+      await unarchiveNote(noteId);
       onSuccess?.();
     } catch (error) {
-      console.error("Error deleting the note", error);
+      console.error("Error al restaurar la nota", error);
     } finally {
       setShowModal(false);
     }
@@ -22,7 +22,7 @@ function DeleteButton({ icon = "", styles = "", noteId = "", onSuccess }) {
     <>
       <button
         onClick={() => setShowModal(true)}
-        className={`w-[18px] h-[18px] ${styles} cursor-pointer hover:scale-110 transition-transform duration-200 ease-in-out`}
+        className={`w-[18px] h-[18px] cursor-pointer ${styles}`}
       >
         <img src={`/assets/images/icon-${icon}-${mode}.svg`} alt="icon" />
       </button>
@@ -30,16 +30,16 @@ function DeleteButton({ icon = "", styles = "", noteId = "", onSuccess }) {
       {showModal && (
         <Modal
           mode={mode}
-          icon="delete"
-          title="Eliminar nota"
-          text="¿Estás seguro de que deseas eliminar esta nota? Esta acción no se puede deshacer."
-          textConfirm="Eliminar"
+          icon="restore"
+          title="Restaurar nota"
+          text="¿Quieres restaurar esta nota? Se moverá de nuevo a tus notas activas."
+          textConfirm="Restaurar"
           onCancel={() => setShowModal(false)}
-          onConfirm={handleConfirmDelete}
+          onConfirm={handleConfirmRestore}
         />
       )}
     </>
   );
 }
 
-export default DeleteButton;
+export default RestoreButton;

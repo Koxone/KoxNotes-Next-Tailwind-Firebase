@@ -8,6 +8,7 @@ function Modal({
   textConfirm = "",
   onCancel,
   onConfirm,
+  icon = '',
 }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -19,7 +20,7 @@ function Modal({
           <div className="w-10 h-10">
             <img
               className="w-full h-full"
-              src={`/assets/images/icon-delete-${mode}.svg`}
+              src={`/assets/images/icon-${icon}-${mode}.svg`}
               alt="icon"
             />
           </div>

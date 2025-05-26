@@ -6,13 +6,14 @@ export async function saveNote(title, content, tags = [], dateText, timeText) {
   if (!user) throw new Error("User not authenticated");
 
   const noteData = {
+    user: user.displayName || user.email,
     title,
     content,
+    createdAt: new Date(),
     tags,
     userId: user.uid,
-    createdAt: new Date(),
-    user: user.displayName || user.email,
     dateText,
+    archived: false,
     timeText,
     lastEdited: new Date(),
   };

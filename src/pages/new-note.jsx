@@ -56,7 +56,7 @@ export default function NewNoteScreen() {
       <div className="w-full h-screen flex flex-col overflow-hidden rounded-lg">
         <Header />
         <div className="w-full h-screen flex flex-col justify-center rounded-xl bg-[var(--foreground)]">
-          <OpenNoteHeader onSave={handleSaveNote} />
+          <OpenNoteHeader onSave={handleSaveNote} saveText="Note created successfully"/>
           <div className="flex flex-col items-center justify-center px-3">
             <NewNoteTitleInput
               value={title}

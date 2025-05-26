@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import CloseNote from "@/components/ui/cards/CloseNote";
 import { getUserNotes } from "/src/utils/getUserNotes";
-import toast from "@/components/feedback/Toast";
+import toast from "@/components/feedback/toast";
 
 export default function AllNotesContainer({
   context = "home",
@@ -27,11 +27,12 @@ export default function AllNotesContainer({
 
   useEffect(() => {
     async function loadNotes() {
-      const userNotes = await getUserNotes();
+      const isArchive = context === "archive";
+      const userNotes = await getUserNotes({ archived: isArchive });
       setNotes(userNotes);
     }
     loadNotes();
-  }, []);
+  }, [context]);
 
   const filteredNotes = notes.filter((note) => {
     const content =

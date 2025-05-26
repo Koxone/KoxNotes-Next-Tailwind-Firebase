@@ -7,7 +7,7 @@ export default function Toast({ text = "" }) {
         src={`/assets/images/icon-checkmark-green-darkMode.svg`}
         alt="icon"
       />
-      <p>{text}</p>
+      <p className="">{text}</p>
     </div>
   );
 }
