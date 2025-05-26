@@ -11,6 +11,7 @@ export async function saveNote(title, content, tags = [], dateText, timeText) {
     tags,
     userId: user.uid,
     createdAt: new Date(),
+    user: user.displayName || user.email,
     dateText,
     timeText,
     lastEdited: new Date(),
