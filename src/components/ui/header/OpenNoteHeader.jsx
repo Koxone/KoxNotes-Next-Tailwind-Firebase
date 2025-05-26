@@ -10,7 +10,13 @@ import RestoreButton from "../buttons/RestoreButton";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/context/ToastContext";
 
-function OpenNoteHeader({ onSave, noteId, styles = "", saveText = "" }) {
+function OpenNoteHeader({
+  onSave,
+  noteId,
+  styles = "",
+  saveText = "",
+  archived = false,
+}) {
   const router = useRouter();
   const { showToast } = useToast();
 
@@ -39,25 +45,29 @@ function OpenNoteHeader({ onSave, noteId, styles = "", saveText = "" }) {
           showToast("Note deleted successfully");
         }}
       />
-      <RestoreButton
-        icon="restore"
-        mode="darkMode"
-        styles="mr-[16px]"
-        noteId={noteId}
-        onSuccess={() => {
-          router.push("/");
-          showToast("Note restored successfully");
-        }}/>
-      <ArchiveButton
-        icon="archive"
-        mode="darkMode"
-        styles="mr-[16px]"
-        noteId={noteId}
-        onSuccess={() => {
-          router.push("/");
-          showToast("Note archived successfully");
-        }}
-      />
+      {archived ? (
+        <RestoreButton
+          icon="restore"
+          mode="darkMode"
+          styles="mr-[16px]"
+          noteId={noteId}
+          onSuccess={() => {
+            router.push("/");
+            showToast("Note restored successfully");
+          }}
+        />
+      ) : (
+        <ArchiveButton
+          icon="archive"
+          mode="darkMode"
+          styles="mr-[16px]"
+          noteId={noteId}
+          onSuccess={() => {
+            router.push("/");
+            showToast("Note archived successfully");
+          }}
+        />
+      )}
       <CancelButton styles="mr-[32px]" />
       <SaveNoteButton
         onClick={onSave}
