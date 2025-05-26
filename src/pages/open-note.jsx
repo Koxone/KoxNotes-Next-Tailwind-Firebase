@@ -4,33 +4,38 @@ import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "/firebase/firebaseConfig";
 
-// Componentes UI
 import OpenNoteHeader from "@/components/ui/header/OpenNoteHeader";
 import MainTitle from "@/components/ui/text/main/MainTitle";
 import OpenNoteInfoCard from "@/components/ui/cards/OpenNoteInfoCard";
 import NoteTextArea from "@/components/ui/inputs/NoteTextArea";
 import Header from "@/components/ui/header/Header";
 import PageHead from "@/components/common/PageHead";
+import { updateNote } from "@/utils/updateNote"; // nuevo import
 
 function OpenNoteScreen() {
   const [note, setNote] = useState(null);
+  const [noteId, setNoteId] = useState(null);
+  const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const noteId = localStorage.getItem("selectedNoteId");
+    const storedId = localStorage.getItem("selectedNoteId");
+    setNoteId(storedId);
 
-    if (!noteId) {
+    if (!storedId) {
       alert("No hay nota seleccionada.");
       return;
     }
 
     const fetchNote = async () => {
       try {
-        const docRef = doc(db, "notes", noteId);
+        const docRef = doc(db, "notes", storedId);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          setNote(docSnap.data());
+          const data = docSnap.data();
+          setNote(data);
+          setContent(data.content || "");
         } else {
           alert("Nota no encontrada.");
         }
@@ -45,13 +50,25 @@ function OpenNoteScreen() {
     fetchNote();
   }, []);
 
-  if (loading) {
-    return <p className=" p-4">Cargando nota...</p>;
-  }
+  const handleSave = async () => {
+    if (!noteId) {
+      alert("No se encontró el ID de la nota.");
+      return;
+    }
 
-  if (!note) {
-    return <p className=" p-4">Nota no encontrada.</p>;
-  }
+    await updateNote(noteId, {
+      title: note.title,
+      content,
+      tags: note.tags || [],
+      dateText: note.dateText,
+      timeText: note.timeText,
+    });
+
+    alert("Nota actualizada correctamente.");
+  };
+
+  if (loading) return <p className="p-4">Cargando nota...</p>;
+  if (!note) return <p className="p-4">Nota no encontrada.</p>;
 
   return (
     <>
@@ -59,7 +76,11 @@ function OpenNoteScreen() {
       <div className="w-full h-screen flex flex-col overflow-hidden rounded-lg">
         <Header />
         <div className="w-full h-screen flex flex-col bg-[var(--foreground)]">
-          <OpenNoteHeader styles="sticky top-0" />
+          <OpenNoteHeader
+            onSave={handleSave}
+            noteId={noteId}
+            styles="sticky top-0"
+          />
           <div className="px-3">
             <MainTitle text={note.title || "Sin título"} styles=" ml-2 mb-5" />
           </div>
@@ -75,7 +96,10 @@ function OpenNoteScreen() {
             />
           </div>
           <div className="flex-1 overflow-y-auto">
-            <NoteTextArea value={note.content} onChange={() => {}} />
+            <NoteTextArea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
           </div>
         </div>
       </div>
