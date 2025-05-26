@@ -71,7 +71,7 @@ function OpenNoteScreen() {
   return (
     <>
       <PageHead title={note.title} description="KoxNotes" />
-      <div className="w-full h-screen flex flex-col overflow-hidden rounded-lg">
+      <div className="w-full h-screen flex flex-col overflow-hidden rounded-lg relative">
         <Header />
         <div className="w-full h-screen flex flex-col bg-[var(--foreground)]">
           <OpenNoteHeader
