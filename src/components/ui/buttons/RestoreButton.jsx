@@ -22,7 +22,7 @@ function RestoreButton({ icon = "", styles = "", noteId = "", onSuccess }) {
     <>
       <button
         onClick={() => setShowModal(true)}
-        className={`w-[18px] h-[18px] cursor-pointer ${styles}`}
+        className={`w-[18px] h-[18px] cursor-pointer ${styles} hover:scale-150 transition-transform duration-200 ease-in-out`}
       >
         <img src={`/assets/images/icon-${icon}-${mode}.svg`} alt="icon" />
       </button>
