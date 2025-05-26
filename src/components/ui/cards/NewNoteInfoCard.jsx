@@ -1,6 +1,11 @@
 import React from "react";
 
-function NewNoteInfoCard({ mode = "", tagsText, status = 'Archived', onChange }) {
+function NewNoteInfoCard({
+  mode = "",
+  tagsText,
+  status = "Archived",
+  onChange,
+}) {
   return (
     <div className="grid grid-rows-1 grid-cols-[max-content_max-content] gap-3 border-b border-neutral-800">
       <div className="grid grid-rows-[1fr_1fr]">
@@ -10,15 +15,6 @@ function NewNoteInfoCard({ mode = "", tagsText, status = 'Archived', onChange })
             Tags
           </p>
         </div>
-
-        {/* <div className="flex items-center gap-1.5">
-          <div>
-            <img src={`/assets/images/icon-status-${mode}.svg`} alt="icon" />
-          </div>
-          <div>
-            <p>Status</p>
-          </div>
-        </div> */}
 
         <div className="flex items-center gap-1.5">
           <img src={`/assets/images/icon-clock-${mode}.svg`} alt="icon" />
@@ -41,10 +37,6 @@ function NewNoteInfoCard({ mode = "", tagsText, status = 'Archived', onChange })
             />
           </div>
         </div>
-
-        {/* <div className="border">
-          <p>{status}</p>
-        </div> */}
 
         <div className="flex items-center justify-start">
           <p className="text-sm text-center font-normal leading-[130%] text-neutral-300">

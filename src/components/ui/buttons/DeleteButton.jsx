@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { deleteNote } from "@/utils/deleteNote";
 import useThemeMode from "../../../hooks/useThemeMode";
+import Modal from "@/components/feedback/Modal";
 
 function DeleteButton({
   icon = "",
@@ -10,12 +11,11 @@ function DeleteButton({
 }) {
   const mode = useThemeMode();
   const handleClick = async () => {
-    const confirmDelete = confirm("Are you sure you want to delete this note?");
-    if (!confirmDelete) return;
+    const [showModal, setShowModal] = useState(false); 
 
     try {
       await deleteNote(noteId);
-      onSuccess?.(); // Si existe onSuccess, se ejecuta
+      onSuccess?.();
     } catch (error) {
       alert("Error deleting the note");
       console.error(error);

@@ -6,19 +6,21 @@ import CancelButton from "../buttons/CancelButton";
 import SaveNoteButton from "../buttons/SaveNoteButton";
 import GoBackButton from "../buttons/GoBackButton";
 
-import { deleteNote } from "@/utils/deleteNote";
-
 import { useRouter } from "next/navigation";
+import { useToast } from "@/context/ToastContext";
 
-function OpenNoteHeader({ onSave, noteId, styles = '' }) {
+function OpenNoteHeader({ onSave, noteId, styles = "" }) {
   const router = useRouter();
+  const { showToast } = useToast();
 
   const goTo = () => {
     router.push("/");
   };
 
   return (
-    <div className={`flex py-3 justify-center w-full px-4 border-b border-neutral-800 mb-3 ${styles}`}>
+    <div
+      className={`flex py-3 justify-center w-full px-4 border-b border-neutral-800 mb-3 ${styles}`}
+    >
       <GoBackButton
         styles="mr-[60px]"
         goTo={goTo}
@@ -30,11 +32,20 @@ function OpenNoteHeader({ onSave, noteId, styles = '' }) {
         mode="darkMode"
         styles="mr-[16px]"
         noteId={noteId}
-        onSuccess={() => router.push("/")}
+        onSuccess={() => {
+          router.push("/");
+          showToast("Nota eliminada correctamente");
+        }}
       />
       <ArchiveButton icon="archive" mode="darkMode" styles="mr-[16px]" />
       <CancelButton styles="mr-[32px]" />
-      <SaveNoteButton onClick={onSave} onSuccess={() => router.back()} />
+      <SaveNoteButton
+        onClick={onSave}
+        onSuccess={() => {
+          router.back();
+          showToast("Nota guardada correctamente");
+        }}
+      />
     </div>
   );
 }

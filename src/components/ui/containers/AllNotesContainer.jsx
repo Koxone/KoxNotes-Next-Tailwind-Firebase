@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import CloseNote from "@/components/ui/cards/CloseNote";
 import { getUserNotes } from "/src/utils/getUserNotes";
+import toast from "@/components/feedback/Toast";
 
 export default function AllNotesContainer({
   context = "home",

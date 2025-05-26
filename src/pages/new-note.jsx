@@ -10,9 +10,9 @@ import OpenNoteHeader from "@/components/ui/header/OpenNoteHeader";
 import NewNoteInfoCard from "@/components/ui/cards/NewNoteInfoCard";
 import NoteTextArea from "@/components/ui/inputs/NoteTextArea";
 import Header from "@/components/ui/header/Header";
-import NavBar from "@/components/ui/nav/NavBar";
 import NewNoteTitleInput from "@/components/ui/inputs/NewNoteTitleInput";
 import PageHead from "@/components/common/PageHead";
+import Toast from "@/components/feedback/Toast";
 
 export default function NewNoteScreen() {
   const [title, setTitle] = useState("");
@@ -40,7 +40,6 @@ export default function NewNoteScreen() {
     });
     try {
       await saveNote(title, content, tags, dateText, timeText, uniqueId);
-      alert("Note saved successfully!");
       setTitle("");
       setContent("");
       setTagsText("");

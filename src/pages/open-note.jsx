@@ -63,8 +63,6 @@ function OpenNoteScreen() {
       dateText: note.dateText,
       timeText: note.timeText,
     });
-
-    alert("Nota actualizada correctamente.");
   };
 
   if (loading) return <p className="p-4">Cargando nota...</p>;

@@ -1,6 +1,6 @@
 function NewNoteTitleInput({ value, onChange }) {
   return (
-    <div className="px-4">
+    <div className="">
       <input
         className="placeholder: placeholder:text-2xl mt-1 text-2xl  outline-0 bg-transparent w-full"
         type="text"
