@@ -12,7 +12,7 @@ export function ToastProvider({ children }) {
     setToast({ show: true, text });
     setTimeout(() => {
       setToast({ show: false, text: "" });
-    }, 3000); // duración visible del toast
+    }, 3000); 
   }, []);
 
   return (
