@@ -72,12 +72,15 @@ function ResetPasswordScreen({ className = "" }) {
         <Header />
         <div
           style={{ backgroundColor: "var(--foreground)" }}
-          className={`${className} w-full h-screen rounded-2xl py-12 px-4 flex flex-col items-center gap-4`}
+          className={`${className} w-full h-screen rounded-2xl pb-12 pt-5 px-4 flex flex-col items-center`}
         >
           <GoBackButton icon="arrow-left" mode="darkMode" styles="self-start" />
           <MainLogo className="" />
-          <TitleAuth text="Reset Your Password" />
-          <SubtitleAuth text="Choose a new password to secure your account" />
+          <div className="mb-9 mt-5">
+            <TitleAuth text="Reset Your Password" />
+            <SubtitleAuth text="Choose a new password to secure your account" />
+          </div>
+
           <div className="w-full flex flex-col">
             <div className="w-full ">
               <PasswordInput
