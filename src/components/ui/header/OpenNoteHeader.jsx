@@ -26,7 +26,7 @@ function OpenNoteHeader({
 
   return (
     <div
-      className={`flex py-3 justify-center w-full px-4 border-b border-neutral-800 mb-3 ${styles}`}
+      className={`flex items-center justify-center w-full px-4 py-3 border-b border-neutral-800 mb-3 -ml-2 ${styles}`}
     >
       <GoBackButton
         styles="mr-[60px]"
