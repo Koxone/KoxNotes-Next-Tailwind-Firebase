@@ -2,29 +2,37 @@
 
 KoxNotes is a modern and responsive note-taking application built with Next.js, Firebase Authentication, and Tailwind CSS.
 
+---
+
 ## 🚀 Features
 
-- 📝 Create, edit, and delete notes
-- 🔍 Search and filter notes
-- 🔐 User authentication with Firebase (email/password and Google login)
-- 🌈 Responsive and clean UI using Tailwind CSS
-- 💾 Data persistence through Firebase backend
-- 🧠 Authentication state management
-- ☁️ Firebase Hosting deployment
+- 📝 Create, edit, delete, and archive notes
+- 🔍 Search notes in real time
+- 🏷️ Filter notes by tags
+- 🔐 Secure user authentication (email/password + Google login)
+- 🔁 Password reset + password change
+- 💾 Data persistence with Firebase Firestore
+- ☁️ Firebase Hosting deployment (`next export` compatible)
+- 🌙 Dark mode support (default)
+
+---
 
 ## 🛠️ Technologies Used
 
-- **Next.js** - React framework for production
-- **Firebase** - Backend services (Authentication, Hosting)
-- **Tailwind CSS** - Utility-first CSS framework
-- **React** - JavaScript library for building UIs
+- **Next.js** – React framework for web apps
+- **Firebase** – Authentication, Firestore, Hosting
+- **Tailwind CSS** – Utility-first CSS framework
+- **React** – UI library
+- **Headless UI + Custom Components** – For clean, reusable UI
+
+---
 
 ## 📦 Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Koxone/KoxNotes-Next-Tailwind.git
-   cd KoxNotes-Next-Tailwind
+   git clone https://github.com/Koxone/KoxNotes-Next-Tailwind-Firebase.git
+   cd KoxNotes-Next-Tailwind-Firebase
    ```
 
 2. **Install dependencies:**
@@ -33,58 +41,71 @@ KoxNotes is a modern and responsive note-taking application built with Next.js, 
    ```
 
 3. **Add your Firebase configuration:**
-   - Create a file at `src/firebase/config.js`
-   - Paste your Firebase configuration and export the `auth` object:
-     ```js
-     import { initializeApp } from "firebase/app";
-     import { getAuth } from "firebase/auth";
+   - Create a file at `firebase/firebaseConfig.js`
+   ```js
+   import { initializeApp } from "firebase/app";
+   import { getAuth } from "firebase/auth";
+   import { getFirestore } from "firebase/firestore";
 
-     const firebaseConfig = {
-       apiKey: "YOUR_API_KEY",
-       authDomain: "YOUR_PROJECT.firebaseapp.com",
-       projectId: "YOUR_PROJECT_ID",
-       storageBucket: "YOUR_PROJECT.appspot.com",
-       messagingSenderId: "YOUR_SENDER_ID",
-       appId: "YOUR_APP_ID"
-     };
+   const firebaseConfig = {
+     apiKey: "YOUR_API_KEY",
+     authDomain: "YOUR_PROJECT.firebaseapp.com",
+     projectId: "YOUR_PROJECT_ID",
+     storageBucket: "YOUR_PROJECT.appspot.com",
+     messagingSenderId: "YOUR_SENDER_ID",
+     appId: "YOUR_APP_ID",
+   };
 
-     const app = initializeApp(firebaseConfig);
-     export const auth = getAuth(app);
-     ```
+   const app = initializeApp(firebaseConfig);
+   export const auth = getAuth(app);
+   export const db = getFirestore(app);
+   ```
 
-4. **Run development server:**
+4. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-5. **Open in browser:**
+5. **Open the app:**
    ```
    http://localhost:3000
    ```
 
+---
+
 ## 🔐 Authentication
 
-- **Email and password registration/login**
-- **Google login using Firebase `signInWithPopup()`**
+- Email + Password login/signup
+- Google OAuth login
+- Password reset (via email)
+- Change password from settings
+- Auth-protected routes using custom `AuthGuard`
+
+---
 
 ## 📁 Folder Structure
 
 ```
-KoxNotes-Next-Tailwind/
+KoxNotes-Next-Tailwind-Firebase/
 ├── src/
-│   ├── app/              # Application routes (Next.js app directory)
-│   ├── components/       # UI components (buttons, inputs, logos, etc.)
-│   ├── firebase/         # Firebase configuration
-│   └── styles/           # Global styles
-├── public/               # Static assets
-├── .firebaserc           # Firebase project configuration
+│   ├── pages/            # Route pages (Next.js)
+│   ├── components/       # UI components
+│   ├── firebase/         # Firebase config
+│   ├── context/          # Toast context
+│   ├── utils/            # Firestore queries
+│   └── styles/           # Global CSS
+├── public/               # Static assets (icons, images)
+├── firestore.indexes.json # Firestore composite indexes
 ├── firebase.json         # Firebase hosting settings
-├── tailwind.config.js    # Tailwind CSS config
-├── postcss.config.js     # PostCSS config
-└── package.json          # Project metadata and dependencies
+├── tailwind.config.js    # Tailwind config
+└── package.json
 ```
 
+---
+
 ## 🌐 Deployment with Firebase Hosting
+
+> Uses `next export` for static deployment
 
 1. **Install Firebase CLI:**
    ```bash
@@ -96,21 +117,21 @@ KoxNotes-Next-Tailwind/
    firebase login
    ```
 
-3. **Initialize Firebase in the project:**
+3. **Initialize Firebase:**
    ```bash
    firebase init
    ```
-   - Select `Hosting` and link your Firebase project
-   - Set `out` as the public directory
+   - Select `Hosting`, `Firestore`, and `Indexes`
+   - Set `out` as public directory
    - Enable single-page app rewrite
-   - Skip GitHub deployment if not needed
 
-4. **Build the project:**
+4. **Build the app:**
    ```bash
    npm run build
+   npm run export
    ```
 
-5. **Deploy to Firebase:**
+5. **Deploy:**
    ```bash
    firebase deploy
    ```
@@ -120,9 +141,13 @@ KoxNotes-Next-Tailwind/
    https://your-project-name.web.app
    ```
 
+---
+
 ## ✨ Credits
 
 Developed with ❤️ by [Koxone](https://github.com/Koxone)
+
+---
 
 ## 📄 License
 
