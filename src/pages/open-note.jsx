@@ -10,7 +10,7 @@ import OpenNoteInfoCard from "@/components/ui/cards/OpenNoteInfoCard";
 import NoteTextArea from "@/components/ui/inputs/NoteTextArea";
 import Header from "@/components/ui/header/Header";
 import PageHead from "@/components/common/PageHead";
-import { updateNote } from "@/utils/updateNote"; // nuevo import
+import { updateNote } from "@/utils/updateNote"; 
 
 function OpenNoteScreen() {
   const [note, setNote] = useState(null);

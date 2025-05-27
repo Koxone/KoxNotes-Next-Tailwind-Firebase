@@ -13,8 +13,8 @@ function CloseNote({ title = "", date = "", tags = [], id }) {
       : [];
 
   const goTo = () => {
-    localStorage.setItem("selectedNoteId", id); // Guardamos el id
-    router.push("/open-note"); // Navegamos a la vista estática
+    localStorage.setItem("selectedNoteId", id); 
+    router.push("/open-note"); 
   };
 
   return (
