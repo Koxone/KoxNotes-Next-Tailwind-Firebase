@@ -21,7 +21,7 @@ export function ToastProvider({ children }) {
 
       {toast.show && (
         <Portal>
-          <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="fixed bottom-20 w-full flex justify-center z-50">
             <Toast text={toast.text} />
           </div>
         </Portal>
