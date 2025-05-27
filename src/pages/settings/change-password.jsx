@@ -17,11 +17,13 @@ import {
   EmailAuthProvider,
   updatePassword,
 } from "firebase/auth";
+import { useRouter } from "next/router";
 
 function ResetPasswordScreen({ className = "" }) {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
+  const router = useRouter();
 
   const { showToast } = useToast();
 
@@ -48,11 +50,9 @@ function ResetPasswordScreen({ className = "" }) {
         currentPassword,
       );
       await reauthenticateWithCredential(user, credential);
-
-      console.log("User before update:", auth.currentUser);
       await updatePassword(user, newPassword);
-      console.log("Password updated successfully");
       showToast("Password updated successfully");
+      router.push("/settings");
     } catch (error) {
       console.error("Error:", error);
       if (error.code === "auth/wrong-password") {
