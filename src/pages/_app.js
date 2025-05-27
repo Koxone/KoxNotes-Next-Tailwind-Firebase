@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  const isPublicRoute = ["/auth/login", "/auth/signup"].includes(router.pathname);
+  const isPublicRoute = ["/auth/login", "/auth/signup", "/auth/forgot-password"].includes(router.pathname);
   const guardedComponent = isPublicRoute ? (
     <Component {...pageProps} />
   ) : (
