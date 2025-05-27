@@ -2,13 +2,9 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 import useThemeMode from "@/hooks/useThemeMode";
+import { getAuth, signOut } from "firebase/auth";
 
-function SettingsCard({
-  text = "",
-  styles = "",
-  icon = "",
-  param = "",
-}) {
+function SettingsCard({ text = "", styles = "", icon = "", param = "" }) {
   const mode = useThemeMode();
   const router = useRouter();
 
@@ -20,7 +16,10 @@ function SettingsCard({
     } else if (param === "change") {
       router.push("/settings/change-password");
     } else if (param === "logout") {
-      router.push("/auth/login");
+      const auth = getAuth();
+      signOut(auth).catch((error) => {
+        console.error("Error al cerrar sesión:", error);
+      });
     } else {
       router.push("/settings");
     }

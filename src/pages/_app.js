@@ -1,10 +1,21 @@
 import "@/styles/globals.css";
-import { ToastProvider } from "@/context/ToastContext"; // ruta al contexto
+import { ToastProvider } from "@/context/ToastContext";
+import AuthGuard from "./auth/AuthGuard";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
-  return (
-    <ToastProvider>
+  const router = useRouter();
+
+  const isPublicRoute = ["/auth/login", "/auth/signup"].includes(router.pathname);
+  const guardedComponent = isPublicRoute ? (
+    <Component {...pageProps} />
+  ) : (
+    <AuthGuard>
       <Component {...pageProps} />
-    </ToastProvider>
+    </AuthGuard>
   );
+  
+
+  return <ToastProvider>{guardedComponent}</ToastProvider>;
 }

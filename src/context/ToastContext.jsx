@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useCallback } from "react";
 import Toast from "@/components/feedback/Toast";
+import Portal from "@/components/common/Portal";
 
 const ToastContext = createContext();
 
@@ -11,7 +12,7 @@ export function ToastProvider({ children }) {
     setToast({ show: true, text });
     setTimeout(() => {
       setToast({ show: false, text: "" });
-    }, 3000);
+    }, 3000); // duración visible del toast
   }, []);
 
   return (
@@ -19,9 +20,11 @@ export function ToastProvider({ children }) {
       {children}
 
       {toast.show && (
-        <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 mb-4">
-          <Toast text={toast.text} />
-        </div>
+        <Portal>
+          <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50">
+            <Toast text={toast.text} />
+          </div>
+        </Portal>
       )}
     </ToastContext.Provider>
   );
